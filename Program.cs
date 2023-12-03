@@ -63,7 +63,7 @@ public class Program
         Log.CloseAndFlush();
     }
 
-    private static Usage() 
+    private static void Usage() 
     {
         Console.WriteLine("Usage:");
     }
