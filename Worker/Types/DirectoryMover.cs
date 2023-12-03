@@ -19,11 +19,11 @@ namespace mediasorter.Worker.Types
                 {
                     if (!Directory.Exists(directory))
                     {
-                        Log.Verbose("Creating directory {dir}", directory);
+                        Log.Verbose("  Creating directory {dir}", directory);
                         Directory.CreateDirectory(directory);
                     }
                     file.CopyTo(Path.Combine(directory, file.Name));
-                    Log.Verbose("Copied file '{file}' to '{dir}'.", file.Name, directory);
+                    Log.Verbose("  Copied file '{file}' to '{dir}'.", file.Name, directory);
                 }
                 catch (Exception ex)
                 {
@@ -34,7 +34,7 @@ namespace mediasorter.Worker.Types
             try
             {
                 file.Delete();
-                Log.Verbose("Deleted file '{file}'.", file.Name);
+                Log.Verbose("  Deleted file '{file}'.", file.Name);
             }
             catch (Exception ex)
             {
