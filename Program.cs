@@ -14,7 +14,8 @@ public class Program
 
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Verbose()
-            .WriteTo.Console()
+            .WriteTo.Console(
+                restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information)
             .WriteTo.File(
                 path: Path.Combine(Path.GetDirectoryName(settings.ConfigFile) ?? ".", ".mediasorter.log"), 
                 rollOnFileSizeLimit: true)

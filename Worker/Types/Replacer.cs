@@ -24,12 +24,12 @@ namespace mediasorter.Worker.Types
             try
             {
                 file.MoveTo(Path.Combine(file.DirectoryName, newName));
-                Log.Verbose("Renamed '{old}' to '{new}'.", oldName, newName);
+                Log.Verbose("  Renamed '{old}' to '{new}'.", oldName, newName);
                 return true;
             }
             catch (Exception)
             {
-                Log.Warning("Could not rename file '{old}' to '{new}'!", oldName, newName);
+                Log.Warning("  Could not rename file '{old}' to '{new}'!", oldName, newName);
                 return false;
             }
         }

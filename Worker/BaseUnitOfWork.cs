@@ -16,8 +16,8 @@ namespace mediasorter.Worker
 
         public bool DoWork(string directory)
         {
-            var log = $"{_unitOfWorkModel.Name} ({_unitOfWorkModel.Description})";
-            if (log == " ()")
+            var log = $"{_unitOfWorkModel.Index}: {_unitOfWorkModel.Name} ({_unitOfWorkModel.Description})";
+            if (log == $"{_unitOfWorkModel.Index} ()")
                 log = _unitOfWorkModel.Index.ToString();
             Serilog.Log.Information("Start working unit {log}", log);
 

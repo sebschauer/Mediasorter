@@ -23,6 +23,7 @@ namespace mediasorter.Worker.Types
                         Directory.CreateDirectory(directory);
                     }
                     file.CopyTo(Path.Combine(directory, file.Name));
+                    Log.Verbose("Copied file '{file}' to '{dir}'.", file.Name, directory);
                 }
                 catch (Exception ex)
                 {
@@ -33,6 +34,7 @@ namespace mediasorter.Worker.Types
             try
             {
                 file.Delete();
+                Log.Verbose("Deleted file '{file}'.", file.Name);
             }
             catch (Exception ex)
             {
