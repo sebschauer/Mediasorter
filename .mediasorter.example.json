@@ -1,0 +1,21 @@
+{
+    "actions": [
+        {
+            "index": 1,
+            "name": "Mein erster Replace-Versuch",
+            "description": "Die erste Beschreibung",
+            "filter": "^.test.*",
+            "replace": 
+            {
+                "from": ".test",
+                "to": ".test123"
+            }
+        }
+    ],
+    "filterPresets": {
+        "Bilder": "^.*(jpg|jpeg|bmp)$",
+        "Videos": "^.*(avi|mpg|mpeg)$",
+        "Audio": "^.*(mp3|wav)$",
+        "Alle_Medien": "^.*(jpg|jpeg|bmp|avi|mpg|mpeg|mp3|wav)$"
+    }
+}
