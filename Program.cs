@@ -11,6 +11,11 @@ public class Program
     public static void Main(string[] args)
     {
         var settings = ParseCliParameters(args);
+        if (settings == null) 
+        {
+            Usage();
+            return;
+        }
 
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Verbose()
@@ -58,9 +63,16 @@ public class Program
         Log.CloseAndFlush();
     }
 
+    private static Usage() 
+    {
+        Console.WriteLine("Usage:");
+    }
+
     private static Settings ParseCliParameters(string[] args) 
     {
         var settings = new Settings();
+        var hasPath = false;
+        var hasConfig = false;
         for (int i = 0; i < args.Count(); i++) 
         {
             switch (args[i]) 
@@ -68,14 +80,22 @@ public class Program
                 case "-path":
                     i++;
                     settings.FileDirectory = args[i];
+                    hasPath = true;
                     break;
                 case "-configfile":
                     i++;
                     settings.ConfigFile = args[i];
+                    hasConfig = true;
                     break;
                 default:
                     throw new ArgumentException($"Unknown parameter '{args[i]}'!");
             }
+        }
+
+        if (!(hasConfig && hasPath)) 
+        {
+            Usage();
+            throw new ArgumentException("Need both parameters!");
         }
 
         return settings;
