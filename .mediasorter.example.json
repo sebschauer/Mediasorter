@@ -31,6 +31,16 @@
         "from": "test(\\d{2})",
         "to": "$1_$1_test12"
       }
+    },
+    {
+      "index": 4,
+      "name": "MoveToDir",
+      "description": "Die erste Beschreibung",
+      "filterPreset": "TestPreset",
+      "directoriesToMove": [
+        "TestDir 1",
+        "TestDir 2"
+      ]
     }
   ],
   "filterPresets": {

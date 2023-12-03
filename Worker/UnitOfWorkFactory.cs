@@ -12,6 +12,9 @@ namespace mediasorter.Worker
 
             if (model.ReplaceRegex != null)
                 return new RegexReplacer(model, config);
+
+            if (model.DirectoriesToMove != null)
+                return new DirectoryMover(model, config);
             // TODO ADD NEW TYPE HERE AS WELL
 
             return null;

@@ -12,6 +12,7 @@ public class UnitOfWorkModel
     public string FilterPreset { get; set; } = null!;
     public ReplacerModel? Replace { get; set; }
     public RegexReplacerModel? ReplaceRegex { get; set; }
+    public List<string>? DirectoriesToMove { get; set; }
 
     public void Validate()
     {
@@ -19,6 +20,8 @@ public class UnitOfWorkModel
         if (Replace != null) 
             workers++;
         if (ReplaceRegex != null) 
+            workers++;
+        if (DirectoriesToMove != null) 
             workers++;
         // TODO ADD NEW TYPE HERE AS WELL
 
