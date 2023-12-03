@@ -1,22 +1,23 @@
-﻿using Mediasorter.Model;
-using Mediasorter.Model.Types;
+﻿using mediasorter.Model.Types;
+using Mediasorter.Model;
 using Serilog;
+using System.Text.RegularExpressions;
 
 namespace mediasorter.Worker.Types
 {
-    public class Replacer : BaseUnitOfWork
+    public class RegexReplacer : BaseUnitOfWork
     {
-        private ReplacerModel _configuration;
+        RegexReplacerModel _configuration;
 
-        public Replacer(UnitOfWorkModel model, ConfigurationModel config) : base(model, config)
+        public RegexReplacer(UnitOfWorkModel model, ConfigurationModel config) : base(model, config)
         {
-            _configuration = _unitOfWorkModel.Replace!;
+            _configuration = _unitOfWorkModel.ReplaceRegex!;
         }
 
         public override bool DoSpecificWork(FileInfo file)
         {
             var oldName = file.Name;
-            var newName = file.Name.Replace(_configuration.From, _configuration.To);
+            var newName = Regex.Replace(file.Name, _configuration.From, _configuration.To);
 
             if (oldName == newName)
                 return true;

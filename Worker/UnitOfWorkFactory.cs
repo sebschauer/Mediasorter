@@ -5,12 +5,14 @@ namespace mediasorter.Worker
 {
     public static class UnitOfWorkFactory
     {
-        public static BaseUnitOfWork Create(UnitOfWorkModel model)
+        public static BaseUnitOfWork Create(UnitOfWorkModel model, ConfigurationModel config)
         {
             if (model.Replace != null)
-            {
-                return new Replacer(model);
-            }
+                return new Replacer(model, config);
+
+            if (model.ReplaceRegex != null)
+                return new RegexReplacer(model, config);
+            // TODO ADD NEW TYPE HERE AS WELL
 
             return null;
         }

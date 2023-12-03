@@ -11,12 +11,33 @@
         "from": ".test",
         "to": ".test123"
       }
+    },
+    {
+      "index": 2,
+      "name": "Mein zweiter Replace-Versuch",
+      "description": "Die erste Beschreibung",
+      "filterPreset": "TestPreset",
+      "replace": {
+        "from": ".test",
+        "to": ".test123"
+      }
+    },
+    {
+      "index": 3,
+      "name": "Regex-Replacing",
+      "description": "Die erste Beschreibung",
+      "filter": "^.test*",
+      "replaceRegex": {
+        "from": "test(\\d{2})",
+        "to": "$1_$1_test12"
+      }
     }
   ],
   "filterPresets": {
     "Bilder": "^.*(jpg|jpeg|bmp)$",
     "Videos": "^.*(avi|mpg|mpeg)$",
     "Audio": "^.*(mp3|wav)$",
-    "Alle_Medien": "^.*(jpg|jpeg|bmp|avi|mpg|mpeg|mp3|wav)$"
+    "Alle_Medien": "^.*(jpg|jpeg|bmp|avi|mpg|mpeg|mp3|wav)$",
+    "TestPreset":  "^.test"
   }
 }

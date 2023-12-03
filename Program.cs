@@ -48,7 +48,7 @@ public class Program
         
         var actions = configuration.Actions
             .OrderBy(model => model.Index)
-            .Select(model => UnitOfWorkFactory.Create(model));
+            .Select(model => UnitOfWorkFactory.Create(model, configuration));
         
         foreach(var action in actions)
             action.DoWork(settings.FileDirectory);

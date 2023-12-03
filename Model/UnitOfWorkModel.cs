@@ -1,3 +1,4 @@
+using mediasorter.Model.Types;
 using Mediasorter.Model.Types;
 
 namespace Mediasorter.Model;
@@ -10,13 +11,16 @@ public class UnitOfWorkModel
     public string Filter { get; set; } = null!;
     public string FilterPreset { get; set; } = null!;
     public ReplacerModel? Replace { get; set; }
+    public RegexReplacerModel? ReplaceRegex { get; set; }
 
     public void Validate()
     {
         var workers = 0;
-        if (Replace != null)
+        if (Replace != null) 
             workers++;
-        // ADD NEW TYPE HERE AS WELL
+        if (ReplaceRegex != null) 
+            workers++;
+        // TODO ADD NEW TYPE HERE AS WELL
 
         if (workers != 1)
             throw new Exception("Each action needs exactly one unit of work (e.g. a replace action)");
