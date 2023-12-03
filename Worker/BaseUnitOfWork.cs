@@ -1,4 +1,5 @@
 ﻿using Mediasorter.Model;
+using Serilog;
 using System.Text.RegularExpressions;
 
 namespace mediasorter.Worker
@@ -21,15 +22,28 @@ namespace mediasorter.Worker
                 log = _unitOfWorkModel.Index.ToString();
             Serilog.Log.Information("Start working unit {log}", log);
 
+            var hadError = false;
+            var touchedFiles = 0;
             var filter = _unitOfWorkModel.Filter ?? _configurationModel.FilterPresets[_unitOfWorkModel.FilterPreset];
 
             var filteredFiles = Directory.EnumerateFiles(directory)
                 .Select(f => new FileInfo(f))
                 .Where(fi => Regex.IsMatch(fi.Name, filter));
-            foreach (var file in filteredFiles)
-                if (DoSpecificWork(file) == false)
-                    return false;
-            return true;
+            foreach (var file in filteredFiles) 
+            {
+                if (DoSpecificWork(file) == true)
+                {
+                    touchedFiles++;
+                }
+                else 
+                {
+                    hadError = true;
+                    break;
+                }
+            }                
+            Log.Information("Handled {count} files", touchedFiles);
+
+            return hadError;
         }
 
         public abstract bool DoSpecificWork(FileInfo file);
