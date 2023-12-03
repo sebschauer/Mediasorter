@@ -2,7 +2,7 @@ namespace Mediasorter;
 
 public class Settings 
 {
-    public string FileDirectory { get; set; } = ".";
+    public string FileDirectory { get; set; }
 
-    public string ConfigFile { get; set; } = ".mediasorter.example.json";
+    public string ConfigFile { get; set; }
 }
