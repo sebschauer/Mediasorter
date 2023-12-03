@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using mediasorter.Worker;
 using Mediasorter.Model;
 using Serilog;
 
@@ -21,6 +22,8 @@ public class Program
         Log.Information("Starting Mediasorter.");
         Log.Verbose($"Loading configuration from '{settings.ConfigFile}', using directory '{settings.FileDirectory}'.");
 
+        ConfigurationModel configuration;
+
         try {
             var configJson = File.ReadAllText(settings.ConfigFile);
 
@@ -33,7 +36,8 @@ public class Program
                 }
             };
 
-            var configuration = JsonSerializer.Deserialize<ConfigurationModel>(configJson, options);
+            configuration = JsonSerializer.Deserialize<ConfigurationModel>(configJson, options);
+            configuration!.Validate();
         }
         catch (Exception ex) {
             Log.Fatal("Error reading configurationfile {file}! Error: {error}. Exit.", settings.ConfigFile, ex.Message);
@@ -42,16 +46,13 @@ public class Program
             return;
         }
         
-        /*
-        var actionFactory = new UnitOfWorkFactory();
         var actions = configuration.Actions
-            .OrderBy(action => action.Index)
-            .Select(action => actionFactory.GetUnitOfWork(action, configuration.ExtensionLists));
+            .OrderBy(model => model.Index)
+            .Select(model => UnitOfWorkFactory.Create(model));
         
         foreach(var action in actions)
-            foreach(var file in Directory.EnumerateFiles(settings.FileDirectory).Select(Path.GetFileName))
-                action.DoWork(file);
-        */
+            action.DoWork(settings.FileDirectory);
+
         Log.Information("Done.");
         Log.CloseAndFlush();
     }
