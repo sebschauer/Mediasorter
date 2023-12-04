@@ -1,5 +1,5 @@
-﻿using Mediasorter.Model;
-using Mediasorter.Model.Types;
+﻿using mediasorter.Model;
+using mediasorter.Model.Types;
 using Serilog;
 
 namespace mediasorter.Worker.Types

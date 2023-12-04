@@ -1,4 +1,4 @@
-namespace Mediasorter.Model.Types;
+namespace mediasorter.Model.Types;
 
 public class ReplacerModel
 {

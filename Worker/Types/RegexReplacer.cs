@@ -1,7 +1,7 @@
 ﻿using mediasorter.Model.Types;
-using Mediasorter.Model;
 using Serilog;
 using System.Text.RegularExpressions;
+using mediasorter.Model;
 
 namespace mediasorter.Worker.Types
 {

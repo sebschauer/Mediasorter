@@ -1,4 +1,4 @@
-namespace Mediasorter.Model;
+namespace mediasorter.Model;
 
 public class ConfigurationModel 
 {

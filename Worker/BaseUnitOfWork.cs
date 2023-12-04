@@ -1,6 +1,6 @@
-﻿using Mediasorter.Model;
-using Serilog;
+﻿using Serilog;
 using System.Text.RegularExpressions;
+using mediasorter.Model;
 
 namespace mediasorter.Worker
 {

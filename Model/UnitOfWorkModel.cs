@@ -1,7 +1,6 @@
 using mediasorter.Model.Types;
-using Mediasorter.Model.Types;
 
-namespace Mediasorter.Model;
+namespace mediasorter.Model;
 
 public class UnitOfWorkModel 
 {

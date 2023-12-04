@@ -1,4 +1,4 @@
-namespace Mediasorter;
+namespace mediasorter;
 
 public class Settings 
 {

@@ -1,5 +1,5 @@
-﻿using mediasorter.Worker.Types;
-using Mediasorter.Model;
+﻿using mediasorter.Model;
+using mediasorter.Worker.Types;
 
 namespace mediasorter.Worker
 {
