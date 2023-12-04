@@ -1,2 +1,2 @@
-dotnet publish ../mediasorter.csproj --configuration Release --self-contained --runtime linux-x64
+dotnet publish ../Mediasorter.csproj --configuration Release --self-contained --runtime linux-x64
 
