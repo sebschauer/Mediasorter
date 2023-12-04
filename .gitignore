@@ -1,7 +1,6 @@
-bin/
-!bin/Release/net6.0/*
-obj/
-.vscode/
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
 
-/.vs/Mediasorter
-/mediasorter.csproj.user
+/.vs/mediasorter
+/Mediasorter.Tests/obj
