@@ -4,3 +4,5 @@
 
 /.vs/mediasorter
 /Mediasorter.Tests/obj
+/Mediasorter.Tests/bin/Debug/net6.0
+/.vs/ProjectEvaluation

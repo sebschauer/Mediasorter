@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -10,6 +10,7 @@
 		<SelfContained>true</SelfContained>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<StartupObject>mediasorter.Program</StartupObject>
 	</PropertyGroup>
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -35,7 +36,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="$(SolutionDir).mediasorter.example.json" CopyToOutputDirectory="PreserveNewest" />
+		<None Include=".mediasorter.example.json" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<ItemGroup>

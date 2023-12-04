@@ -7,9 +7,9 @@ namespace mediasorter.Worker
     public abstract class BaseUnitOfWork : IUnitOfWork
     {
         protected UnitOfWorkModel _unitOfWorkModel;
-        protected ConfigurationModel _configurationModel;
+        protected ConfigurationModel? _configurationModel;
 
-        protected BaseUnitOfWork(UnitOfWorkModel model, ConfigurationModel configurationModel)
+        protected BaseUnitOfWork(UnitOfWorkModel model, ConfigurationModel? configurationModel)
         {
             _unitOfWorkModel = model;
             _configurationModel = configurationModel;

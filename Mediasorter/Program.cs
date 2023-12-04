@@ -10,10 +10,15 @@ public class Program
 
     public static void Main(string[] args)
     {
-        var settings = ParseCliParameters(args);
-        if (settings == null) 
+        Settings settings;
+        try
+        {
+            settings = ParseCliParameters(args);
+        }
+        catch (Exception ex)
         {
             Usage();
+            Console.WriteLine(ex.Message);
             return;
         }
 
@@ -65,7 +70,9 @@ public class Program
 
     private static void Usage() 
     {
-        Console.WriteLine("Usage:");
+        Console.WriteLine($"Usage: {Path.GetFileName(AppDomain.CurrentDomain.FriendlyName)} -path <path> -configfile <file>");
+        Console.WriteLine("   -path <path>        The directory where the files to be handled are located");
+        Console.WriteLine("   -configfile <file>  Path to the JSON config file where the actions to be done are described.");
     }
 
     private static Settings ParseCliParameters(string[] args) 
@@ -92,11 +99,8 @@ public class Program
             }
         }
 
-        if (!(hasConfig && hasPath)) 
-        {
-            Usage();
+        if (!hasConfig || !hasPath)
             throw new ArgumentException("Need both parameters!");
-        }
 
         return settings;
     }    

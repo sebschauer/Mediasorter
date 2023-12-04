@@ -9,7 +9,7 @@ namespace mediasorter.Worker.Types
     {
         RegexReplacerModel _configuration;
 
-        public RegexReplacer(UnitOfWorkModel model, ConfigurationModel config) : base(model, config)
+        public RegexReplacer(UnitOfWorkModel model, ConfigurationModel? config) : base(model, config)
         {
             _configuration = _unitOfWorkModel.ReplaceRegex!;
         }

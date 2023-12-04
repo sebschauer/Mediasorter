@@ -8,7 +8,7 @@ namespace mediasorter.Worker.Types
     {
         private ReplacerModel _configuration;
 
-        public Replacer(UnitOfWorkModel model, ConfigurationModel config) : base(model, config)
+        public Replacer(UnitOfWorkModel model, ConfigurationModel? config) : base(model, config)
         {
             _configuration = _unitOfWorkModel.Replace!;
         }
