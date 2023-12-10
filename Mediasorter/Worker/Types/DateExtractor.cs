@@ -12,19 +12,30 @@ public class DateExtractor : BaseUnitOfWork
 {
     private string _fromRegex;
     private string _toRegex;
+    private string? _excludeRegex;
 
     public DateExtractor(UnitOfWorkModel model, ConfigurationModel? configurationModel) : base(model, configurationModel)
     {
         _fromRegex = model.ExtractDate!.From;
         _toRegex = model.ExtractDate.To;
+        _excludeRegex = model.ExtractDate.Exclude;
     }
 
     public override bool DoSpecificWork(FileInfo file)
     {
+        if (_excludeRegex != null) 
+        {
+            if (Regex.IsMatch(file.Name, _excludeRegex))
+            {
+                Log.Verbose("  File {file}: Excluded by exclude pattern", file.Name);
+                return true;
+            }
+        }
+
         var date = GetTakenDateTime(ImageMetadataReader.ReadMetadata(file.FullName));
         if (date == null) 
         {
-            Log.Verbose("File {file}: No creation date found in file.", file.Name);
+            Log.Verbose("  File {file}: No creation date found in file.", file.Name);
             return true;
         }
         
