@@ -11,6 +11,7 @@ public class UnitOfWorkModel
     public string FilterPreset { get; set; } = null!;
     public ReplacerModel? Replace { get; set; }
     public RegexReplacerModel? ReplaceRegex { get; set; }
+    public DateExtractorModel? ExtractDate { get; set; }
     public List<string>? DirectoriesToMove { get; set; }
 
     public void Validate()
@@ -21,6 +22,8 @@ public class UnitOfWorkModel
         if (ReplaceRegex != null) 
             workers++;
         if (DirectoriesToMove != null) 
+            workers++;
+        if (ExtractDate != null)
             workers++;
         // TODO ADD NEW TYPE HERE AS WELL
 

@@ -15,6 +15,9 @@ namespace mediasorter.Worker
 
             if (model.DirectoriesToMove != null)
                 return new DirectoryMover(model, config);
+
+            if (model.ExtractDate != null)
+                return new DateExtractor(model, config);
             // TODO ADD NEW TYPE HERE AS WELL
 
             return null;
