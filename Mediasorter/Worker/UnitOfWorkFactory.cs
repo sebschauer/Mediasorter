@@ -5,7 +5,7 @@ namespace mediasorter.Worker
 {
     public static class UnitOfWorkFactory
     {
-        public static BaseUnitOfWork Create(UnitOfWorkModel model, ConfigurationModel? config)
+        public static BaseUnitOfWork Create(UnitOfWorkModel model, ConfigurationModel config)
         {
             if (model.Replace != null)
                 return new Replacer(model, config);
@@ -20,7 +20,7 @@ namespace mediasorter.Worker
                 return new DateExtractor(model, config);
             // TODO ADD NEW TYPE HERE AS WELL
 
-            return null;
+            return null!;
         }
     }
 }

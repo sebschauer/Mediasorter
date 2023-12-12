@@ -1,7 +1,5 @@
-using System.Runtime.InteropServices;
 using mediasorter.Model;
 using Serilog;
-using System.Drawing;
 using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
 using System.Text.RegularExpressions;
@@ -10,11 +8,11 @@ namespace mediasorter.Worker.Types;
 
 public class DateExtractor : BaseUnitOfWork
 {
-    private string _fromRegex;
-    private string _toRegex;
-    private string? _excludeRegex;
+    private readonly string _fromRegex;
+    private readonly string _toRegex;
+    private readonly string? _excludeRegex;
 
-    public DateExtractor(UnitOfWorkModel model, ConfigurationModel? configurationModel) : base(model, configurationModel)
+    public DateExtractor(UnitOfWorkModel model, ConfigurationModel configurationModel) : base(model, configurationModel)
     {
         _fromRegex = model.ExtractDate!.From;
         _toRegex = model.ExtractDate.To;

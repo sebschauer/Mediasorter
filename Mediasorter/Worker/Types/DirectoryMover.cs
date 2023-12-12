@@ -5,10 +5,11 @@ namespace mediasorter.Worker.Types
 {
     public class DirectoryMover : BaseUnitOfWork
     {
-        private List<string> _directories;
-        public DirectoryMover(UnitOfWorkModel model, ConfigurationModel? configurationModel) : base(model, configurationModel)
+        private readonly List<string> _directories;
+
+        public DirectoryMover(UnitOfWorkModel model, ConfigurationModel configurationModel) : base(model, configurationModel)
         {
-            _directories = model.DirectoriesToMove;
+            _directories = model.DirectoriesToMove!;
         }
 
         public override bool DoSpecificWork(FileInfo file)

@@ -7,11 +7,11 @@ namespace mediasorter.Worker.Types
 {
     public class RegexReplacer : BaseUnitOfWork
     {
-        RegexReplacerModel _configuration;
+        readonly RegexReplacerModel _configuration;
 
-        public RegexReplacer(UnitOfWorkModel model, ConfigurationModel? config) : base(model, config)
+        public RegexReplacer(UnitOfWorkModel model, ConfigurationModel config) : base(model, config)
         {
-            _configuration = _unitOfWorkModel.ReplaceRegex!;
+            _configuration = UnitOfWorkModel.ReplaceRegex!;
         }
 
         public override bool DoSpecificWork(FileInfo file)

@@ -85,11 +85,13 @@ public class Program
             switch (args[i]) 
             {
                 case "-path":
+                case "--path":
                     i++;
                     settings.FileDirectory = args[i];
                     hasPath = true;
                     break;
                 case "-configfile":
+                case "--configfile":
                     i++;
                     settings.ConfigFile = args[i];
                     hasConfig = true;

@@ -14,9 +14,13 @@ public class ConfigurationModel
         {
             action.Validate();
 
-            if (action.FilterPreset != null && !FilterPresets.ContainsKey(action.FilterPreset))
+            if (action.IncludePreset != null && !FilterPresets.ContainsKey(action.IncludePreset))
             {
-                throw new Exception($"Filterpreset '{action.FilterPreset}' unknown!");
+                throw new Exception($"Preset '{action.IncludePreset}' unknown!");
+            }
+            if (action.ExcludePreset != null && !FilterPresets.ContainsKey(action.ExcludePreset))
+            {
+                throw new Exception($"Preset '{action.IncludePreset}' unknown!");
             }
         }
     }

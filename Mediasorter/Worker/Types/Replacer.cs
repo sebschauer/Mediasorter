@@ -6,11 +6,11 @@ namespace mediasorter.Worker.Types
 {
     public class Replacer : BaseUnitOfWork
     {
-        private ReplacerModel _configuration;
+        private readonly ReplacerModel _configuration;
 
-        public Replacer(UnitOfWorkModel model, ConfigurationModel? config) : base(model, config)
+        public Replacer(UnitOfWorkModel model, ConfigurationModel config) : base(model, config)
         {
-            _configuration = _unitOfWorkModel.Replace!;
+            _configuration = UnitOfWorkModel.Replace!;
         }
 
         public override bool DoSpecificWork(FileInfo file)

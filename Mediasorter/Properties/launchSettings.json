@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Debug win-x64": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\s.schauer.VAULT\\Documents\\MyPersonal\\Mediasorter\\Mediasorter\\bin\\Debug\\net6.0\\win-x64\\Mediasorter.exe"
+    }
+  }
+}
