@@ -1,5 +1,6 @@
 using mediasorter.Model.Types;
 using Mediasorter.Model.Types;
+using Serilog;
 
 namespace mediasorter.Model;
 
@@ -34,9 +35,12 @@ public class UnitOfWorkModel
             throw new Exception("Each action needs exactly one unit of work (e.g. a replace action)");
 
         if ((Include is null) == (IncludePreset is null))
-            throw new Exception("Use exactly one of filter and filterpreset");
+        {
+            Log.Debug("include = {incl}, preset = {pre}", Include, IncludePreset);
+            throw new Exception("Use exactly one of include and includePreset");
+        }
 
         if (Exclude is not null && ExcludePreset is not null)
-            throw new Exception("Use only one of Exclude and ExcludePreset");
+            throw new Exception("Use only one of exclude and excludePreset");
     }
 }
