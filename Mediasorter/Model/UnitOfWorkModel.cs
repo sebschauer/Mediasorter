@@ -36,7 +36,6 @@ public class UnitOfWorkModel
 
         if ((Include is null) == (IncludePreset is null))
         {
-            Log.Debug("include = {incl}, preset = {pre}", Include, IncludePreset);
             throw new Exception("Use exactly one of include and includePreset");
         }
 
