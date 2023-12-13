@@ -6,10 +6,12 @@ namespace mediasorter.Worker.Types
     public class DirectoryMover : BaseUnitOfWork
     {
         private readonly List<string> _directories;
+        private readonly bool _canDelete;
 
         public DirectoryMover(UnitOfWorkModel model, ConfigurationModel configurationModel) : base(model, configurationModel)
         {
-            _directories = model.DirectoriesToMove!;
+            _directories = model.Move!.DirectoriesToMove!;
+            _canDelete = model.Move.DeleteAfterMove ?? false;
         }
 
         public override bool DoSpecificWork(FileInfo file)
@@ -32,16 +34,21 @@ namespace mediasorter.Worker.Types
                     return false;
                 }
             }
-            try
+
+            if (_canDelete)
             {
-                file.Delete();
-                Log.Verbose("  Deleted file '{file}'.", file.Name);
+                try
+                {
+                    file.Delete();
+                    Log.Verbose("  Deleted file '{file}'.", file.Name);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error("Error removing file '{file}' from source directory '{dir}'!", file.Name, file.DirectoryName);
+                    return false;
+                }
             }
-            catch (Exception ex)
-            {
-                Log.Error("Error removing file '{file}' from source directory '{dir}'!", file.Name, file.DirectoryName);
-                return false;
-            }
+            
             return true;
         }
     }

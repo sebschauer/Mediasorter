@@ -13,7 +13,7 @@ namespace mediasorter.Worker
             if (model.ReplaceRegex != null)
                 return new RegexReplacer(model, config);
 
-            if (model.DirectoriesToMove != null)
+            if (model.Move != null)
                 return new DirectoryMover(model, config);
 
             if (model.ExtractDate != null)

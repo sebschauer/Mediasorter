@@ -1,4 +1,5 @@
 using mediasorter.Model.Types;
+using Mediasorter.Model.Types;
 
 namespace mediasorter.Model;
 
@@ -14,7 +15,7 @@ public class UnitOfWorkModel
     public ReplacerModel? Replace { get; set; }
     public RegexReplacerModel? ReplaceRegex { get; set; }
     public DateExtractorModel? ExtractDate { get; set; }
-    public List<string>? DirectoriesToMove { get; set; }
+    public DirectoryMoverModel? Move { get; set; }
 
     public void Validate()
     {
@@ -23,7 +24,7 @@ public class UnitOfWorkModel
             workers++;
         if (ReplaceRegex != null) 
             workers++;
-        if (DirectoriesToMove != null) 
+        if (Move != null) 
             workers++;
         if (ExtractDate != null)
             workers++;

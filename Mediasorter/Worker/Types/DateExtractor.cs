@@ -10,26 +10,15 @@ public class DateExtractor : BaseUnitOfWork
 {
     private readonly string _fromRegex;
     private readonly string _toRegex;
-    private readonly string? _excludeRegex;
 
     public DateExtractor(UnitOfWorkModel model, ConfigurationModel configurationModel) : base(model, configurationModel)
     {
         _fromRegex = model.ExtractDate!.From;
         _toRegex = model.ExtractDate.To;
-        _excludeRegex = model.ExtractDate.Exclude;
     }
 
     public override bool DoSpecificWork(FileInfo file)
     {
-        if (_excludeRegex != null) 
-        {
-            if (Regex.IsMatch(file.Name, _excludeRegex))
-            {
-                Log.Verbose("  File {file}: Excluded by exclude pattern", file.Name);
-                return true;
-            }
-        }
-
         var date = GetTakenDateTime(ImageMetadataReader.ReadMetadata(file.FullName));
         if (date == null) 
         {
