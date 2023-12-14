@@ -1,7 +1,7 @@
-﻿using mediasorter.Model;
+﻿using Mediasorter.Model;
 using Serilog;
 
-namespace mediasorter.Worker.Types
+namespace Mediasorter.Worker.Types
 {
     public class DirectoryMover : BaseUnitOfWork
     {

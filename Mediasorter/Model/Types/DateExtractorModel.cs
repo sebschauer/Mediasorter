@@ -1,4 +1,4 @@
-namespace mediasorter.Model.Types;
+namespace Mediasorter.Model.Types;
 
 public class DateExtractorModel
 {

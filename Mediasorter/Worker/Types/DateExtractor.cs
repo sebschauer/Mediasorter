@@ -1,10 +1,10 @@
-using mediasorter.Model;
-using Serilog;
+using System.Text.RegularExpressions;
+using Mediasorter.Model;
 using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
-using System.Text.RegularExpressions;
+using Serilog;
 
-namespace mediasorter.Worker.Types;
+namespace Mediasorter.Worker.Types;
 
 public class DateExtractor : BaseUnitOfWork
 {

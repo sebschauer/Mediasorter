@@ -1,8 +1,8 @@
-﻿using mediasorter.Model;
-using mediasorter.Model.Types;
+﻿using Mediasorter.Model;
+using Mediasorter.Model.Types;
 using Serilog;
 
-namespace mediasorter.Worker.Types
+namespace Mediasorter.Worker.Types
 {
     public class Replacer : BaseUnitOfWork
     {

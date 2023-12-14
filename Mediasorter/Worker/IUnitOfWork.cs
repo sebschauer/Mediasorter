@@ -1,4 +1,4 @@
-﻿namespace mediasorter.Worker
+﻿namespace Mediasorter.Worker
 {
     public interface IUnitOfWork
     {

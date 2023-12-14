@@ -1,8 +1,6 @@
-using mediasorter.Model.Types;
 using Mediasorter.Model.Types;
-using Serilog;
 
-namespace mediasorter.Model;
+namespace Mediasorter.Model;
 
 public class UnitOfWorkModel 
 {

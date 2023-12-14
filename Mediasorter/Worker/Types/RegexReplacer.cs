@@ -1,9 +1,9 @@
-﻿using mediasorter.Model.Types;
+﻿using System.Text.RegularExpressions;
+using Mediasorter.Model;
+using Mediasorter.Model.Types;
 using Serilog;
-using System.Text.RegularExpressions;
-using mediasorter.Model;
 
-namespace mediasorter.Worker.Types
+namespace Mediasorter.Worker.Types
 {
     public class RegexReplacer : BaseUnitOfWork
     {

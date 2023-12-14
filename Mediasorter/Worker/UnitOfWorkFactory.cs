@@ -1,7 +1,7 @@
-﻿using mediasorter.Model;
-using mediasorter.Worker.Types;
+﻿using Mediasorter.Model;
+using Mediasorter.Worker.Types;
 
-namespace mediasorter.Worker
+namespace Mediasorter.Worker
 {
     public static class UnitOfWorkFactory
     {

@@ -1,8 +1,8 @@
-﻿using Serilog;
-using System.Text.RegularExpressions;
-using mediasorter.Model;
+﻿using System.Text.RegularExpressions;
+using Mediasorter.Model;
+using Serilog;
 
-namespace mediasorter.Worker
+namespace Mediasorter.Worker
 {
     public abstract class BaseUnitOfWork : IUnitOfWork
     {

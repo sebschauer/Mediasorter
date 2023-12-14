@@ -1,10 +1,10 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using mediasorter.Model;
-using mediasorter.Worker;
+using Mediasorter.Model;
+using Mediasorter.Worker;
 using Serilog;
 
-namespace mediasorter;
+namespace Mediasorter;
 public class Program
 {
 
