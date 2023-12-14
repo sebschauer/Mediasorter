@@ -13,7 +13,7 @@ namespace Mediasorter.Worker.Types
             _configuration = UnitOfWorkModel.Replace!;
         }
 
-        public override bool DoSpecificWork(FileInfo file)
+        protected override bool DoSpecificWork(FileInfo file)
         {
             var oldName = file.Name;
             var newName = file.Name.Replace(_configuration.From, _configuration.To);

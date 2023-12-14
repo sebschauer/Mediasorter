@@ -10,6 +10,11 @@ public class ConfigurationModel
 
     public void Validate()
     {
+        if (Actions is null || Actions.Count == 0)
+        {
+            throw new Exception("No action defined, nothing to do!");
+        }
+
         foreach(var action in Actions)
         {
             action.Validate();

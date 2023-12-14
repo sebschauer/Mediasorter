@@ -9,23 +9,52 @@ namespace Mediasorter.Tests.UnitTests.Worker
         [Fact]
         public void DoWork_MustUseIncludeExcludePatterns()
         {
-            var testId = Guid.NewGuid();
-            var testDir = Path.Combine(Directory.GetCurrentDirectory(), testId.ToString());
-            Directory.CreateDirectory(testDir);
-
             var includePattern = "txt$";
             var excludePattern = "^a";
+            var files = new[]
+            {
+                "ignore.jpg",
+                "process.txt",
+                "afiletoignore.txt",
+                "afiletoignore.jpg"
+            };
+            var testDir = DirectoryHandler.CreateTestDirectory(filenames: files);
             var unitOfWorkModel = new UnitOfWorkModel { Include = includePattern, Exclude = excludePattern };
-            foreach (var file in new[] {"ignore.jpg", "ignore.txt", "afiletoprocess.txt", "afiletoignore.jpg"})
-                File.WriteAllText(Path.Combine(testDir, file), "");
-
             var sut = new DummyWorker(unitOfWorkModel, null!);
-            sut.DoWork(testDir);
+
+            var result = sut.DoWork(testDir);
             Directory.Delete(testDir, true);
 
+            result
+                .Should().BeTrue();
             sut.ProcessedFiles
                 .Should().HaveCount(1)
-                .And.ContainSingle(f => f.Name == "afiletoprocess.txt");
+                .And.ContainSingle(f => f.Name == "process.txt");
+        }
+
+        [Theory]
+        [InlineData(false, 1)]
+        [InlineData(true, 3)]
+        public void DoWork_MustExitOnFirstError(bool workSuccess, int assertedProcessedFiles)
+        {
+            var includePattern = ".*";
+            var files = new[]
+            {
+                "file1.txt", 
+                "file2.txt", 
+                "file3.txt"
+            };
+            var testDir = DirectoryHandler.CreateTestDirectory(filenames: files);
+            var unitOfWorkModel = new UnitOfWorkModel { Include = includePattern };
+            var sut = new DummyWorker(unitOfWorkModel, null!, doSpecificWorkResult: workSuccess);
+
+            var result = sut.DoWork(testDir);
+            Directory.Delete(testDir, true);
+
+            result
+                .Should().Be(workSuccess);
+            sut.ProcessedFiles
+                .Should().HaveCount(assertedProcessedFiles);
         }
     }
 }

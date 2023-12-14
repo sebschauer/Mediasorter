@@ -13,7 +13,7 @@ namespace Mediasorter.Tests.Helpers
             DoSpecificWorkResult = doSpecificWorkResult;
         }
 
-        public override bool DoSpecificWork(FileInfo file)
+        protected override bool DoSpecificWork(FileInfo file)
         {
             ProcessedFiles.Add(file);
             return DoSpecificWorkResult;

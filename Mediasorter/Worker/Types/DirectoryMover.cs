@@ -14,7 +14,7 @@ namespace Mediasorter.Worker.Types
             _canDelete = model.Move.DeleteAfterMove ?? false;
         }
 
-        public override bool DoSpecificWork(FileInfo file)
+        protected override bool DoSpecificWork(FileInfo file)
         {
             foreach (var directory in _directories)
             {

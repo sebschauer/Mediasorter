@@ -17,7 +17,7 @@ public class DateExtractor : BaseUnitOfWork
         _toRegex = model.ExtractDate.To;
     }
 
-    public override bool DoSpecificWork(FileInfo file)
+    protected override bool DoSpecificWork(FileInfo file)
     {
         var date = GetTakenDateTime(ImageMetadataReader.ReadMetadata(file.FullName));
         if (date == null)

@@ -1,0 +1,53 @@
+{
+  "name": "E2E",
+  "description": "end-to-end test for Mediasorter",
+  "filterpresets": {
+    "Texts": "\\.(txt|TXT|md|MD)$"
+  },
+  "actions": [
+    {
+      "name": "TXT => txt",
+      "index": 10,
+      "includepreset": "Texts",
+      "replace": {
+        "from": ".TXT",
+        "to": ".txt"
+      }
+    },
+    {
+      "name": "change date order",
+      "index": 20,
+      "include": "txt$",
+      "replaceregex": {
+        "from": "(.*)([0-9]{2})_([0-9]{2})_([0-9]{4})(.*)",
+        "to": "$4_$3_$2_$1_$5"
+      }
+    },
+    {
+      "name": "move old",
+      "index": 30,
+      "include": "(old|Old|OLD)",
+      "exclude": "(keep|Keep|KEEP)",
+      "move": {
+        "directoriesToMove": [
+          "E2ETestDirectory/oldFiles",
+          "E2ETestDirectory/allFiles"
+        ],
+        "deleteAfterMove": true
+      }
+    },
+    {
+      "name": "move new",
+      "index": 30,
+      "include": "(new|New|NEW)",
+      "exclude": "(keep|Keep|KEEP)",
+      "move": {
+        "directoriesToMove": [
+          "E2ETestDirectory/newFiles",
+          "E2ETestDirectory/allFiles"
+        ],
+        "deleteAfterMove": true
+      }
+    }
+  ]
+}

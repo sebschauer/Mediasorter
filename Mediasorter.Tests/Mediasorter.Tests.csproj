@@ -27,4 +27,10 @@
     <ProjectReference Include="..\Mediasorter\Mediasorter.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="EndToEndTests\e2e.config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

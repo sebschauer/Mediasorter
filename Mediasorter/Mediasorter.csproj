@@ -10,7 +10,7 @@
 		<SelfContained>true</SelfContained>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<StartupObject>mediasorter.Program</StartupObject>
+		<StartupObject>Mediasorter.Program</StartupObject>
 	</PropertyGroup>
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -34,11 +34,6 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<None Include=".mediasorter.example.json" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
 	<ItemGroup>
 		<PackageReference Include="Serilog" Version="3.1.1" />
 		<PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
