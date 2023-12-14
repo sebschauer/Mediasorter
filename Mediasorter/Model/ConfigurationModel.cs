@@ -5,8 +5,8 @@ public class ConfigurationModel
     public string? Name { get; set; }
     public string? Description { get; set; }
 
-    public List<UnitOfWorkModel> Actions { get; set; }
-    public Dictionary<string, string> FilterPresets { get; set; }
+    public List<UnitOfWorkModel> Actions { get; set; } = null!;
+    public Dictionary<string, string> FilterPresets { get; set; } = null!;
 
     public void Validate()
     {

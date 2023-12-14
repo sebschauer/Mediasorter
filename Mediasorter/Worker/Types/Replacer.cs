@@ -23,7 +23,7 @@ namespace Mediasorter.Worker.Types
 
             try
             {
-                file.MoveTo(Path.Combine(file.DirectoryName, newName));
+                file.MoveTo(Path.Combine(file.DirectoryName!, newName));
                 Log.Verbose("  Renamed '{old}' to '{new}'.", oldName, newName);
                 return true;
             }

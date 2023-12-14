@@ -1,8 +1,8 @@
 namespace Mediasorter;
 
-public class Settings 
+public class Settings
 {
-    public string FileDirectory { get; set; }
+    public string FileDirectory { get; set; } = null!;
 
-    public string ConfigFile { get; set; }
+    public string ConfigFile { get; set; } = null!;
 }
