@@ -56,7 +56,10 @@ Don't forget to make it executable. Now you can drop all files into the folder a
 	  - `to`: The regular expression to replace, e.g. `$2$1$3` to swap text and digits in the example.
 	- `extractDate`: The object describing a date extracting operation from image EXIF data. By now, it only extracts the creation date in the format `20231231_235959`.
 	  - `from`: The regular expression describing the search operation, e.g. the simple `(.*)`.
-	  - `to`: The regular expression replacing. The placeholder `{DATE}` will be replaced by the creation date of the image, if there is some EXIF data. E.g. `{DATE}_$1` would insert the date at the beginning of the filename in the example.
+	  - `to`: The regular expression replacing. Some placeholders in curly brackets will be replaced by the date and time from the EXIF data. The shortcut `{DATE}` will be replaced by `yyyyMMdd_HHmmss`. So  `"to": "{yy}{MM}{dd}_$1"` would insert the date at the beginning of the filename in the example.
+	  
+	    The full list of placeholders: `{d}`, `{dd}`, `{ddd}`, `{dddd}`, `{f}`, `{ff}`, `{fff}`, `{ffff}`, `{fffff}`, `{ffffff}`, `{fffffff}`, `{F}`, `{FF}`, `{FFF}`, `{FFFF}`, `{FFFFF}`, `{FFFFFF}`, `{FFFFFFF}`, `{g}`, `{gg}`, `{h}`, `{hh}`, `{H}`, `{HH}`, `{m}`, `{mm}`, `{M}`, `{MM}`, `{MMM}`, `{MMMM}`, `{s}`, `{ss}`, `{t}`, `{tt}`, `{y}`, `{yy}`, `{yyy}`, `{yyyy}`, `{yyyyy}`, `{z}`, `{zz}`, `{zzz}`. See [learn.microsoft.com](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) for more explanation.
+	  
 	- `move`: The object describing a move/copy operation:
 	  - `directoriesToMove`: An array of paths of directories the files shall be copied to. If they don't exist, they will be created. It is an array, so the files can be copied to more than one directory.
 	  - `deleteAfterMove`: Whether the files shall be removed after copying. Optional, default: false.
