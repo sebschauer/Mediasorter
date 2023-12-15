@@ -58,7 +58,8 @@ Don't forget to make it executable. Now you can drop all files into the folder a
 	  - `from`: The regular expression describing the search operation, e.g. the simple `(.*)`.
 	  - `to`: The regular expression replacing. Some placeholders in curly brackets will be replaced by the date and time from the EXIF data. The shortcut `{DATE}` will be replaced by `yyyyMMdd_HHmmss`. So  `"to": "{yy}{MM}{dd}_$1"` would insert the date at the beginning of the filename in the example.
 	  
-	    The full list of placeholders: `{d}`, `{dd}`, `{ddd}`, `{dddd}`, `{f}`, `{ff}`, `{fff}`, `{ffff}`, `{fffff}`, `{ffffff}`, `{fffffff}`, `{F}`, `{FF}`, `{FFF}`, `{FFFF}`, `{FFFFF}`, `{FFFFFF}`, `{FFFFFFF}`, `{g}`, `{gg}`, `{h}`, `{hh}`, `{H}`, `{HH}`, `{m}`, `{mm}`, `{M}`, `{MM}`, `{MMM}`, `{MMMM}`, `{s}`, `{ss}`, `{t}`, `{tt}`, `{y}`, `{yy}`, `{yyy}`, `{yyyy}`, `{yyyyy}`, `{z}`, `{zz}`, `{zzz}`. See [learn.microsoft.com](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) for more explanation.
+	    The full list of placeholders: `{d}`, `{dd}`, `{ddd}`, `{dddd}`, `{f}`, `{ff}`, `{fff}`, `{ffff}`, `{fffff}`, `{ffffff}`, `{fffffff}`, `{F}`, `{FF}`, `{FFF}`, `{FFFF}`, `{FFFFF}`, `{FFFFFF}`, `{FFFFFFF}`, `{g}`, `{gg}`, `{h}`, `{hh}`, `{H}`, `{HH}`, `{m}`, `{mm}`, `{M}`, `{MM}`, `{MMM}`, `{MMMM}`, `{s}`, `{ss}`, `{t}`, `{tt}`, `{y}`, `{yy}`, `{yyy}`, `{yyyy}`, `{yyyyy}`, `{z}`, `{zz}`, `{zzz}` and `{DATE}`. See [learn.microsoft.com](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) for more explanation.
+	  - `culture` (optional): The name of the culture, e.g. `"en-US"` or `"de-DE"`. Important if you need language-specific date details in your filename, e.g. "Sunday". Language default is [English](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture?view=net-6.0). For a full list of all possible culture names see the *language tag* in the *list of language/region names supported by Windows* [here](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c).
 	  
 	- `move`: The object describing a move/copy operation:
 	  - `directoriesToMove`: An array of paths of directories the files shall be copied to. If they don't exist, they will be created. It is an array, so the files can be copied to more than one directory.
@@ -108,8 +109,9 @@ Don't forget to make it executable. Now you can drop all files into the folder a
 			"exclude":       "[0-9]{8}_[0-9]{6}",
 			"extractDate": 
 			{
-				"from": "(.*)",
-				"to":   "{DATE}_$1"
+				"from":    "(.*)",
+				"to":      "{DATE}_$1",
+				"culture": "de-DE"
 			}
 		},
 		{
