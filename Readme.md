@@ -2,6 +2,15 @@
 
 Extensively rename and move your files.
 
+An example scenario might be: Let's assume you have a folder in which different camera devices (smartphone, digital camera, ...) do backup their photos. The files have different filename schemes; some contain the creation date, some don't; and you would like to have a list of all photos in chronological order.
+
+Then you can use *Mediasorter*: Create a configuration file with different renaming and moving actions:
+- Replace all "-" by "_" in all Whatsapp videos (filenames `IMG_20231231_235959_WA-0001.jpg`, containing "WA")
+- Take all files starting with `DCIM` and add `IMG_{Day}_{Time}_` (day/time from EXIF creation date) at the beginning.
+- Move all files not starting with `IMG_` to folder `OtherFiles`.
+
+Create a shortcut to start *Mediasorter* with this config in your folder. Now a click on this shortcut renames and moves your photos.
+
 ## Usage
 
 ### Calling the program
@@ -12,7 +21,7 @@ Call the program by `{mediasorter} -path <FOLDER_WITH_FILES> -configfile <CONFIG
 
 ### Functionality basics
 
-Mediasorter works on files in a given directory. It gets tasks from a configuration file and executes them on all files in the directory matching specific conditions. At the moment these files can be renamed, renamed using regular expressions, copied to (several) directories, and getting the exif creation date added to the filename.
+Mediasorter works on files in a given directory. It gets tasks from a configuration file and executes them on all files in the given directory matching specific conditions. At the moment these files can be renamed, renamed using regular expressions, copied to (several) directories, and getting the exif creation date added to the filename.
 
 Matching files are determined by two regular expressions: `Include` (mandatory) and `Exclude` (optional). There is the possibility to create presets which can be used by `IncludePreset` / `ExcludePreset` for the purpose of reusing code. (Example: `"FilterPresets": [ "IMAGES": "(jpg|JPG|bmp|BMP)$" ]`.)
 
