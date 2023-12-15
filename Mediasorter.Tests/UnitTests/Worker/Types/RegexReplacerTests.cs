@@ -13,7 +13,8 @@ namespace Mediasorter.Tests.UnitTests.Worker.Types
             ReplaceRegex = new()
             {
                 From = "(.*)_(.*)\\.(.*)",
-                To = "$2_$1.$3"
+                To = "$2_$1.$3",
+                
             }
         };
 
