@@ -10,3 +10,7 @@
 /Xediasorter.sln.DotSettings.user
 /mediasorter.sln.DotSettings.user
 /.vs/Xediasorter/v17/.suo
+/.vs
+/bin
+/obj
+/mediasorter.csproj.user
