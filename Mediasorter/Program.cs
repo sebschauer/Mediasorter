@@ -109,7 +109,7 @@ public class Program
         Console.WriteLine("   -configfile <file>  Path to the JSON config file where the actions to be done are described.");
         Console.WriteLine("Mediasorter Copyright (C) 2023  Sebastian Schauer.");
         Console.WriteLine("This program comes with ABSOLUTELY NO WARRANTY.");
-        Console.WriteLine("This is free software, and you are welcome to redistribute it under certain conditions. It is licensed under the terms of the GNU General Public License v3 or any later; check <http://gnu.org/licenses>.");
+        Console.WriteLine("This is free software, and you are welcome to redistribute it under certain conditions. It is licensed under the terms of the GNU General Public License v3 or any later; check <http://www.gnu.org/licenses>.");
     }
 
     private static Settings ParseCliParameters(string[] args) 
