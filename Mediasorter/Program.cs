@@ -107,6 +107,9 @@ public class Program
         Console.WriteLine($"Usage: {Path.GetFileName(AppDomain.CurrentDomain.FriendlyName)} -path <path> -configfile <file>");
         Console.WriteLine("   -path <path>        The directory where the files to be handled are located");
         Console.WriteLine("   -configfile <file>  Path to the JSON config file where the actions to be done are described.");
+        Console.WriteLine("Mediasorter Copyright (C) 2023  Sebastian Schauer.");
+        Console.WriteLine("This program comes with ABSOLUTELY NO WARRANTY.");
+        Console.WriteLine("This is free software, and you are welcome to redistribute it under certain conditions. It is licensed under the terms of the GNU General Public License v3 or any later; check <http://gnu.org/licenses>.")
     }
 
     private static Settings ParseCliParameters(string[] args) 
