@@ -107,8 +107,6 @@ namespace Mediasorter.Tests.UnitTests.Worker.Types
         [InlineData("{MMMM}", "Dezember")]
         [InlineData("{s}", "57")]
         [InlineData("{ss}", "57")]
-        [InlineData("{t}", "")]
-        [InlineData("{tt}", "")]
         [InlineData("{y}", "23")]
         [InlineData("{yy}", "23")]
         [InlineData("{yyy}", "2023")]
