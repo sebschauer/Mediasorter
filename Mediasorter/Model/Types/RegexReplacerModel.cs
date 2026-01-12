@@ -32,6 +32,8 @@
     Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
 */
 
+#nullable disable
+
 namespace Mediasorter.Model.Types
 {
     public class RegexReplacerModel

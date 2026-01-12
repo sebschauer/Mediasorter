@@ -32,11 +32,13 @@
     Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
 */
 
+#nullable disable
+
 namespace Mediasorter.Model.Types;
 
 public class DateExtractorModel
 {
     public string From { get; set; } = null!;
     public string To { get; set; } = null!;
-    public string? Culture { get; set; }
+    public string Culture { get; set; }
 }

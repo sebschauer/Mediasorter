@@ -67,7 +67,7 @@ public class Program
         Log.Information("Starting Mediasorter.");
         Log.Verbose($"Loading configuration from '{settings.ConfigFile}', using directory '{settings.FileDirectory}'.");
 
-        ConfigurationModel configuration;
+        ConfigurationModel? configuration;
 
         try {
             var configJson = File.ReadAllText(settings.ConfigFile);
