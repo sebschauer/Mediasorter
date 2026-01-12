@@ -1,7 +1,0 @@
-bin/
-!bin/Release/net6.0/*
-obj/
-.vscode/
-
-/.vs/Mediasorter
-/mediasorter.csproj.user

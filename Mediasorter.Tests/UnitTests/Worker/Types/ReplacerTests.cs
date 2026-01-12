@@ -1,5 +1,5 @@
 ﻿/*
-	Copyright 2023 Sebastian Schauer.
+	Copyright 2023-2026 Sebastian Schauer <mediasorter(at)sebschauer.de>.
 	
 	This file is part of Mediasorter.
 	

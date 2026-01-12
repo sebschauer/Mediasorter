@@ -1,16 +1,3 @@
-﻿################################################################################
-# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
-################################################################################
-
-/.vs/mediasorter
-/Mediasorter.Tests/obj
-/Mediasorter.Tests/bin/Debug/net6.0
-/.vs/ProjectEvaluation
-/Xediasorter.sln.DotSettings
-/Xediasorter.sln.DotSettings.user
-/mediasorter.sln.DotSettings.user
-/.vs/Xediasorter/v17/.suo
-/.vs
-/bin
-/obj
-/mediasorter.csproj.user
+﻿**/.vs
+**/bin
+**/obj
