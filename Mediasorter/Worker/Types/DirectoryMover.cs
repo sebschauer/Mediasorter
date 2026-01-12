@@ -64,9 +64,9 @@ namespace Mediasorter.Worker.Types
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Error copying file '{file}' to directory '{dir}'!", file.Name, directory);
+                    Log.Error("Error copying file '{file}' to directory '{dir}', will not delete it!", file.Name, directory);
                     Log.Debug("Error: {err} - {stack}", ex.Message, ex.StackTrace);
-                    return false;
+                    return true;
                 }
             }
 
@@ -81,7 +81,7 @@ namespace Mediasorter.Worker.Types
                 {
                     Log.Error("Error removing file '{file}' from source directory '{dir}'!", file.Name, file.DirectoryName);
                     Log.Debug("Error: {err} - {stack}", ex.Message, ex.StackTrace);
-                    return false;
+                    return true;
                 }
             }
             
